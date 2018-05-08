@@ -4,8 +4,8 @@
   <arg name="name" default="quadrotor"/>
   <arg name="model" default="$(find hector_quadrotor_description)/urdf/quadrotor.gazebo.xacro"/>
   <arg name="controllers" default="
+    controller/velocity    
     controller/position
-    controller/velocity
     controller/attitude
     "/>
   <arg name="tf_prefix" default="$(optenv ROS_NAMESPACE)"/>

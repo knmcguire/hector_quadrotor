@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<robot name="quadrotor" xmlns:xacro="http://www.ros.org/wiki/xacro">
+   
+    <xacro:property name="M_PI" value="3.1415926535897931" />
+    
+    <!-- Included URDF Files -->
+    <xacro:include filename="$(find hector_quadrotor_description)/urdf/quadrotor_base.urdf.xacro" />
+    
+    <!-- Instantiate quadrotor_base_macro once (has no parameters atm) -->
+    <xacro:quadrotor_base_macro />
+    
+
+    <xacro:include filename= "$(find hector_quadrotor_description)/urdf/range_sensors/range_sensors.urdf.xacro" />
+    <xacro:range_sensors  name="back" parent="base_link">
+       <origin xyz="0.05 0.0 -0.06" rpy="0 0 ${M_PI}"/>
+    </xacro:range_sensors>
+    <xacro:range_sensors  name="front" parent="base_link">
+       <origin xyz="0.05 0.0 -0.06" rpy="0 0 0"/>
+    </xacro:range_sensors>
+    <xacro:range_sensors  name="right" parent="base_link">
+       <origin xyz="0.05 0.0 -0.06" rpy="0 0 ${-M_PI/2}"/>
+    </xacro:range_sensors>
+    <xacro:range_sensors  name="left" parent="base_link">
+       <origin xyz="0.05 0.0 -0.06" rpy="0 0 ${M_PI/2}"/>
+    </xacro:range_sensors>
+
+</robot>
+  
